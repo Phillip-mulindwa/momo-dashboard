@@ -1,0 +1,185 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/logo_mtn_transparent.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/solid.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <title>Momo-Analyst</title>
+</head>
+
+<body>
+  <section class="container">
+    <nav>
+      <div class="logo">
+        <img src="./images/logo_mtn_transparent.png" alt="logo" class="logo">
+      </div>
+      <ul class="nav-links">
+        <li>
+          <div class="nav-link nav-link1">
+            <i class="fas fa-home"></i>
+            <p>Home</p>
+          </div>
+        </li>
+        <li>
+          <div class="nav-link nav-link2">
+            <i class="fas fa-file-alt"></i>
+            <p>Add File</p>
+          </div>
+        </li>
+        <li>
+          <div class="nav-link nav-link-print">
+            <i class="fas fa-print"></i>
+            <p>Print</p>
+          </div>
+        </li>
+        <li>
+          <div class="nav-link nav-link4">
+            <i class="fas fa-chart-pie"></i>
+            <p>Stats</p>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <section class="sub-container">
+      <!--Home Section-->
+      <section class="home-section">
+        <div class="home-container">
+          <div class="cash_flow">
+            <div class="title">Financial Overview</div>
+            <div class="cash_in">
+              <h2>Cash In</h2>
+              <p>0.00</p>
+            </div>
+            <div class="cash_out">
+              <h2>Cash Out</h2>
+              <p>0.00</p>
+            </div>
+            <div class="fees">
+              <h2>Fees</h2>
+              <p>0.00</p>
+            </div>
+            <div class="balance">
+              <h2>Balance</h2>
+              <p>0.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="transactions">
+          <div class="controler">
+            <div class="topper">
+              <div class="title">
+                <p>Transactions</p>
+              </div>
+              <div class="time-filters">
+                <div class="search">
+                  <input type="text" placeholder="Search" class="placeholder">
+                  <i class="fas fa-search"></i>
+                </div>
+                <div class="calendar">
+                  <input type="date" class="date" class="inputcalendar">
+                </div>
+              </div>
+            </div>
+            <div class="filter">
+              <div class="transaction_types">
+                <div class="fil">
+                  <a class="cashpower" data-type="cashpower">CashPower</a>
+                  <a class="codeholders" data-type="codeholders">CodeHolders</a>
+                </div>
+                <div class="fil">
+                  <a class="airtime" data-type="airtime">Airtime</a>
+                  <a class="bundles" data-type="bundles">Bundles</a>
+                </div>
+                <div class="fil">
+                  <a class="incomingmoney" data-type="incomingmoney">Incoming</a>
+                  <a class="nontransaction" data-type="nontransaction">NonCash</a>
+                </div>
+                <div class="fil">
+                  <a class="deposit" data-type="deposit">Deposit</a>
+                  <a class="failedtransactions" data-type="failedtransactions">Failed</a>
+                </div>
+                <div class="fil">
+                  <a class="thirdparty" data-type="thirdparty">ThirdParty</a>
+                  <a class="transfer" data-type="transfer">Transfer</a>
+                </div>
+                <div class="fil">
+                  <a class="payments" data-type="payments">Payments</a>
+                  <a class="reversedtransactions" data-type="reversedtransactions">Reversed</a>
+                </div>
+                <div class="fil">
+                  <a class="withdraw" data-type="withdraw">Withdraw</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="table"></div>
+        </div>
+      </section>
+      <!--Add File Section -->
+      <section class="Add-file-section">
+        <div class="file-upload">
+          <h1>UPLOAD A MESSAGES FILE</h1>
+          <input type="file" id="file" class="file" style="display: none;" accept=".xml">
+          <label for="file" class="file-label">
+            <i class="fas fa-file-upload"></i>
+          </label>
+          <p id="file-error" style="color: red; display: none;">Please upload a valid XML file.</p>
+        </div>
+      </section>
+      <!--charts-->
+      <section class="bot-section">
+        <div class="full-content">
+          <div class="chart-card">
+            <h3>Monthly Trends Chart</h3>
+            <div class="chart1">
+              <canvas id="lineChart" class="lineChart"></canvas>
+              <div class="line-controls">
+                <label><input type="checkbox" data-line="Airtime" checked> Airtime</label>
+                <label><input type="checkbox" data-line="Bundles" checked> Bundles</label>
+                <label><input type="checkbox" data-line="CashPower" checked> CashPower</label>
+                <label><input type="checkbox" data-line="Incoming" checked> Incoming</label>
+                <label><input type="checkbox" data-line="Deposit" checked> Deposit</label>
+                <label><input type="checkbox" data-line="ThirdParty" checked> ThirdParty</label>
+                <label><input type="checkbox" data-line="Transfer" checked> Transfer</label>
+                <label><input type="checkbox" data-line="Payments" checked> Payments</label>
+                <label><input type="checkbox" data-line="Withdraw" checked> Withdraw</label>
+                <label><input type="checkbox" data-line="CodeHolders" checked> CodeHolders</label>
+                <label><input type="checkbox" data-line="NonCash" checked> NonCash</label>
+                <label><input type="checkbox" data-line="Failed" checked> Failed</label>
+                <label><input type="checkbox" data-line="Reversed" checked> Reversed</label>
+              </div>
+            </div>
+          </div>
+          <div class="other-charts">
+            <div class="chart-card1">
+              <h3>Spending Distribution</h3>
+              <canvas id="pieChart" class="pieChart"></canvas>
+            </div>
+
+            <div class="chart-card1">
+              <h3>Monthly Transaction Comparison</h3>
+              <canvas id="barChart" class="barChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Print Section-->
+      <section class="Print-section">
+        <h1>Download Transaction Representations</h1>
+        <div id="print-tables"></div>
+        <button id="download-pdf-btn" class="dbutton"><i class="fas fa-download"></i></button>
+      </section>
+  </section>
+  <script src="./index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+</body>
+
+</html>
