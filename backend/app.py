@@ -1,37 +1,63 @@
-from flask import Flask, jsonify
+from fastapi import FastAPI, Query
+from pydantic import BaseModel
+from typing import List, Optional
 import sqlite3
 
-app = Flask(__name__)
+DB = 'momo_sms.db'
 
-@app.route('/stats')
+def get_db():
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+class Transaction(BaseModel):
+    tx_id: str
+    amount: int
+    fee: int
+    balance: Optional[int]
+    category: str
+    counterparty: Optional[str]
+    timestamp: str
+    raw_text: str
+
+app = FastAPI()
+
+@app.get('/api/transactions', response_model=List[Transaction])
+def list_transactions(
+    category: Optional[str] = Query(None),
+    date_from: Optional[str] = Query(None),
+    date_to: Optional[str] = Query(None),
+    min_amount: Optional[int] = Query(None),
+    max_amount: Optional[int] = Query(None)
+):
+    db = get_db()
+    sql = "SELECT * FROM transactions WHERE 1=1"
+    params = []
+    if category:
+        sql += " AND category = ?"; params.append(category)
+    if date_from:
+        sql += " AND timestamp >= ?"; params.append(date_from)
+    if date_to:
+        sql += " AND timestamp <= ?"; params.append(date_to)
+    if min_amount is not None:
+        sql += " AND amount >= ?"; params.append(min_amount)
+    if max_amount is not None:
+        sql += " AND amount <= ?"; params.append(max_amount)
+    rows = db.execute(sql, params).fetchall()
+    db.close()
+    return [Transaction(**dict(r)) for r in rows]
+
+@app.get('/api/stats')
 def stats():
-    conn = sqlite3.connect('momo_sms.db')
-    cur = conn.cursor()
-
-    cur.execute("SELECT category, amount, fee, timestamp FROM transactions")
-    rows = cur.fetchall()
-    conn.close()
-
-    categorized = {}
-
-    for row in rows:
-        category, amount, fee, timestamp = row
-        if category is None:
-            continue
-        key = category.lower().replace(" ", "")
-        entry = {
-            "AMOUNT": amount if amount else 0,
-            "Fee": fee if fee else 0,
-            "date": timestamp
-        }
-        if key in categorized:
-            categorized[key].append(entry)
-        else:
-            categorized[key] = [entry]
-
-    return jsonify({
-        "data": categorized
-    })
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    db = get_db()
+    by_cat = db.execute(
+        "SELECT category, SUM(amount) AS total FROM transactions GROUP BY category"
+    ).fetchall()
+    monthly = db.execute(
+        "SELECT SUBSTR(timestamp,1,7) AS month, SUM(amount) AS total FROM transactions GROUP BY month"
+    ).fetchall()
+    db.close()
+    return {
+        "by_category": {r["category"]: r["total"] for r in by_cat},
+        "monthly":     {r["month"]:   r["total"] for r in monthly}
+    }
