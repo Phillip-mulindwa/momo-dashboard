@@ -1,0 +1,641 @@
+
+body{
+    background-color: #ffbb00;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.container{
+    position: relative;
+    height: 96%;
+    width: 98%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
+}
+nav{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 0 0 10px;
+    
+}
+
+.sub-container{
+    flex: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(244, 247, 247);
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.logo{
+    margin-top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+.logo:hover{
+    cursor: pointer;
+    background-color: rgb(52, 52, 52);
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nav-links {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 20px;
+    padding: 0px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+li{
+    list-style: none;
+}
+
+.nav-link{
+    list-style: none;
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+
+.nav-link:hover{
+    display: flex;
+    justify-content: center;
+    background-color: #ffbb00;
+    padding: 10px 0px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nav-link p{
+    display: none;
+    font-size: 15px;
+}
+
+.nav-link_activated {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffbb00;
+    padding: 10px 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.file-upload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95%;
+
+}
+
+.file-upload h1{
+    position: absolute;
+    top: 5px;
+    padding: 30px 30%;
+    background-color: #ffbb00;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    background-color: #000000;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #e0a800;
+}
+
+.file-label i {
+    font-size: 24px; /* Adjust the size of the icon */
+}
+/*Home section*/
+.home-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(168, 183, 252); */
+    height: calc(100% - 3%);
+    width: 97%;
+    gap: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.home-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgb(118, 238, 202); */
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.cash_flow{
+    flex:1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+}
+
+.cash_flow > div{
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.title{
+    font-size: 30px;
+    background-color: #ffbb00;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.cash_in, .cash_out, .fees, .balance{
+    background-color: white;
+}
+
+
+.cash_flow > div p{
+    float: left;
+    background-color: rgb(241, 241, 241);
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.cash_in h2 , .cash_in p{
+    color: rgb(4, 182, 4);
+    font-weight: bold;
+}
+.cash_out, .cash_out p{
+    color: red;
+    font-weight: bold;
+}
+.fees, .fees p{
+    color: #d39c03;
+    font-weight: bold;
+}
+.balance p{
+    font-weight: bold;
+}
+
+
+
+.transactions{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* background-color: bisque; */
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.controler{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.topper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.transactions .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: #ffbb00;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.time-filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+
+.transactions .search{
+    flex:2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    
+}
+
+.transactions .calendar{
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.calendar input{
+    padding: 12px 20px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="date"]{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.calendar input:focus{
+    padding: 12px 30px;
+    outline: transparent;
+}
+.calendar input:active{
+    padding: 12px 30px;
+}
+
+
+.transactions .search .placeholder{
+    padding: 12px 20px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in-out;
+}
+.transactions .search .placeholder:focus{
+    padding: 12px 30px;
+    outline: transparent;
+}
+
+.transactions .search .placeholder:active{
+    padding: 12px 30px;
+    border: #d39c03;
+}
+.transactions .search .fa-search{
+    padding: 12px 20px;
+    background-color: #ffbb00;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+}
+.transaction_types{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.fil{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.filter .transaction_types  .fil > a{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #ffbb00;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.filter .transaction_types .fil > a:hover{
+    background-color: #e0a800;
+}
+.filter .transaction_types .fil > a.active{
+    background-color: black;
+}
+/* Add styling for the table and container */
+#table {
+   /* Adjust the height as needed */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  padding: 10px;
+  text-align: right;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  font-size: 15px;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: white;
+  font-size: 13px;
+}
+
+tbody tr:hover {
+  background-color:#fce9b678;
+  cursor: pointer;
+}
+
+/* Add styling for active filter buttons */
+.transaction-type .fil a.active {
+  background-color: black;
+  color: white;
+}
+/*Alert*/
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}
+
+.custom-alert.show {
+    display: block;
+}
+
+/*loading*/
+/* Loading overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+/* Custom alert */
+.custom-alert {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.custom-alert.show {
+    opacity: 1;
+}
+
+.custom-alert.error {
+    background: red;
+}
+
+/*scrollbar*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background:#d39c03;
+}
+
+.fil > a.active{
+    background-color: black;
+}
+/*bot section*/
+.bot-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.full-content{
+    height: 100vh;
+    width: 98%;
+}
+
+/*chart*/
+
+.chart-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 95vh;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.other-charts{
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px
+}
+.chart-card1{
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.chart-card1 h3{
+    text-align: center;
+    padding: 10px 20px;
+    background-color:#e0a800;
+    border-radius: 10px;
+}
+
+/*charts*/
+.chart1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+.chart1 .lineChart{
+    flex: 5;
+    background-color: azure;
+    border-radius: 10px;
+}
+
+.chart1 .line-controls{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-card h3{
+    text-align: center;
+    padding: 10px 20px;
+    background-color:#e0a800;
+    border-radius: 10px;
+}
+
+.chart-card1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pieChart, .barChart{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    max-width: 650px;
+    max-height: 600px;
+}
+
+.barChart{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    max-width: 650px;
+    min-height: 600px;
+}
+
+.lineChart{
+    max-width: 80%;
+    max-height: 600px;
+}
+
+/*Print section*/
+.print-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.print-section h1{
+    position: absolute;
+    top: 5px;
+    padding: 30px 30%;
+    background-color: #ffbb00;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.dbutton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    background-color: #000000;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+    border-color: transparent;
+    transition: background-color 0.3s ease;
+}
+.dbutton:hover {
+    background-color: #e0a800;
+}
