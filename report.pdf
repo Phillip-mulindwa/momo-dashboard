@@ -1,0 +1,42 @@
+#Overview
+
+Project Title: MTN MoMo SMS Analytics Dashboard
+Objective: Build a fullstack app that parses, categorizes, and visualizes SMS transactions from MTN Mobile Money.
+
+Tech Stack:
+
+Backend: Python, FastAPI, SQLite
+
+Frontend: HTML/CSS/JavaScript, Chart.js
+
+Process:
+
+Parsed ~1600 XML messages using Python
+
+Categorized messages (cash-in, payments, transfers, etc.)
+
+Stored into SQLite with cleaned structure
+
+Built FastAPI endpoints to serve categorized data
+
+Designed interactive frontend dashboard
+
+# Key Features & Challenges
+
+Key Features:
+
+Search and filter by type/date
+
+Monthly transaction trends (Line Chart)
+
+Spending distribution (Pie Chart)
+
+Detailed printable PDF report
+
+Challenges:
+
+Inconsistent SMS formats → resolved via regex and fallback logging
+
+Handling missing fields and multiple categories
+
+Outcome: A polished and interactive MoMo Dashboard with full backend/frontend integration.
