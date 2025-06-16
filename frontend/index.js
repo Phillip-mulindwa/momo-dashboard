@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showLoading("Fetching database results...");
     try {
       const databaseResponse = await fetch(
-        "https://psychic-space-sniffle-v6qvr954gg99hr99-5000.app.github.dev/stats"
+        "https://psychic-space-sniffle-v6qvr954gg99hr99-8000.app.github.dev/database_return"
       );
       if (!databaseResponse.ok) throw new Error("Database fetch failed.");
 
